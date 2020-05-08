@@ -12,7 +12,7 @@ jobs:
       - name: Packer build
         uses: santisaez/packer-action@v1
         with:
-          template: ../packer-hpc-fvcom.json
+          template: hpc-fvcom/packer-hpc-fvcom.json
         env:
           ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
           ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
