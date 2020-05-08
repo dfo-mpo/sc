@@ -40,7 +40,7 @@
   "provisioners": [
     {
       "type": "shell",
-      "script": "./packer-ubuntu.sh",
+      "script": "packer-ubuntu.sh",
       "valid_exit_codes": [0, 1],
       "timeout": "40m",
       "pause_before": "120s"
