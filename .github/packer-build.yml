@@ -12,7 +12,7 @@ jobs:
       - name: Packer build
         uses: riznob/packer-build-action@v1.1
         with:
-          templateFile: 'packer-fvcom.json'
+          templateFile: 'packer-hpc-fvcom.json'
           #varFile: 'packer-vars.json'
           workingDir: './hpc-fvcom'
         env:
