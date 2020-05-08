@@ -8,12 +8,26 @@ jobs:
   packer_build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Packer build
-        uses: santisaez/packer-action@v1
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      # validate templates
+      - name: Validate Template
+        uses: operatehappy/packer-github-actions@master
         with:
-          template: hpc-fvcom/packer-hpc-fvcom.json
-          options: build
+          command: validate
+          arguments: -syntax-only
+          target: hpc-fvcom/packer-hpc-fvcom.json
+
+      # build artifact
+      - name: Build Artifact
+        uses: operatehappy/packer-github-action
+        with:
+          command: build
+          arguments: "-on-error=abort"
+          target: hpc-fvcom/packer-hpc-fvcom.json
+
+      # additional steps to process artifacts
         env:
           ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
           ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
