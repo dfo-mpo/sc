@@ -13,9 +13,11 @@ jobs:
         uses: santisaez/packer-action@v1
         with:
           template: hpc-fvcom/packer-hpc-fvcom.json
+          options: build
         env:
           ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
           ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
           ARM_CLIENT_SECRET : ${{ secrets.ARM_CLIENT_SECRET }}
           ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
           ARM_ENVIRONMENT : public
+          SAS_FVCOM_CODE : ${{ secrets.SAS_FVCOM_CODE }}
