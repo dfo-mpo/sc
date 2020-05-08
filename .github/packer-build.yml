@@ -12,9 +12,9 @@ jobs:
       - name: Packer build
         uses: riznob/packer-build-action@v1.1
         with:
-          templateFile: 'packer-hpc-fvcom.json'
+          templateFile: '../hpc-fvcom/packer-hpc-fvcom.json'
           #varFile: 'packer-vars.json'
-          workingDir: './hpc-fvcom'
+          workingDir: '.'
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
