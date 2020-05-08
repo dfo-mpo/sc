@@ -26,7 +26,7 @@ jobs:
           command: build
           arguments: "-on-error=abort"
           target: hpc-fvcom/packer-hpc-fvcom.json
-
+          working-directory: hpc-fvcom/
       # additional steps to process artifacts
         env:
           ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
