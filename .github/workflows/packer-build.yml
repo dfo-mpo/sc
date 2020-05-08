@@ -21,7 +21,7 @@ jobs:
 
       # build artifact
       - name: Build Artifact
-        uses: operatehappy/packer-github-action
+        uses: operatehappy/packer-github-action@master
         with:
           command: build
           arguments: "-on-error=abort"
