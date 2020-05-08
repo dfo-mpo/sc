@@ -12,12 +12,10 @@ jobs:
       - name: Packer build
         uses: santisaez/packer-action@v1
         with:
-          template: nginx-digitalocean.json
+          template: ../packer-hpc-fvcom.json
         env:
-          DIGITALOCEAN_API_TOKEN: ${{ secrets.DIGITALOCEAN_API_TOKEN }}
-          ARM_SUBSCRIPTION_ID: 
-          ARM_CLIENT_ID: 
-          ARM_CLIENT_SECRET : 
-          ARM_TENANT_ID: 
+          ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+          ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+          ARM_CLIENT_SECRET : ${{ secrets.ARM_CLIENT_SECRET }}
+          ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
           ARM_ENVIRONMENT : public
-          
