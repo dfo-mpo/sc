@@ -10,12 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Packer build
-        uses: riznob/packer-build-action@v1.1
+        uses: santisaez/packer-action@v1
         with:
-          templateFile: '../hpc-fvcom/packer-hpc-fvcom.json'
-          #varFile: 'packer-vars.json'
-          workingDir: '.'
+          template: nginx-digitalocean.json
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: us-west-2
+          DIGITALOCEAN_API_TOKEN: ${{ secrets.DIGITALOCEAN_API_TOKEN }}
